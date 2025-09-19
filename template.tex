@@ -87,7 +87,7 @@
 %\newcommand{\orcidauthorB}{0000-0000-0000-000X} % Add \orcidB{} behind the author's name
 
 % Authors, for the paper (add full first names)
-\Author{Christian-Antonio Colin-Cejudo$^{1,\dagger,\ddagger}$\orcidA{}, Gonzalo-Issac Duchén-Sánchez $^{2,\ddagger}$ and Firstname Lastname $^{2,}$*}
+\Author{Christian-Antonio Colin-Cejudo$^{1,\dagger,\ddagger}$\orcidA{}, Gonzalo-Issac Duchén-Sánchez $^{2,\ddagger}$ and Gabriel Sánchez-Pérez $^{3,\dagger}$}
 
 %\longauthorlist{yes}
 
@@ -118,8 +118,8 @@
 % Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
 \address{%
 $^{1}$ \quad Affiliation 1; christian.upiita@gmai.com\\
-$^{2}$ \quad Affiliation 2; gduchen@ieee.org}
-
+$^{2}$ \quad Affiliation 2; gduchen@ieee.org\\
+$^{3}$ \quad Affiliation 3; caaann@gmail.com}
 % Contact information of the corresponding author
 \corres{Correspondence: e-mail@e-mail.com; Tel.: (optional; include country code; if there are multiple corresponding authors, add author initials) +xx-xxxx-xxx-xxxx (F.L.)}
 
@@ -209,19 +209,9 @@ This thesis proposes the design and implementation of a cryptographic security l
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Materials and Methods}
-To properly contextualize the present thesis, it is necessary to address the origins of the standard cryptographic algorithm Caesar, as well as its evolution and applications over time. Likewise, the conditions under which information security services and mechanisms emerged will be explored, along with the ways in which they have been implemented across different environments. This analysis allows for the delineation of the problem that this research seeks to address through the proposed hardware-based implementation. Consequently, a review of the state of the art in the field is carried out, with particular emphasis on embedded systems that incorporate security mechanisms.
 
-This review seeks to establish the foundations underlying the design of cryptographic solutions on reconfigurable platforms such as FPGAs, highlighting their relevance in scenarios where information protection is critical. This theoretical framework provides the basis for the methodological and experimental development presented in the following chapters.
+This chapter reviewed the foundations of classical cryptography, emphasizing the Caesar cipher as an illustrative example of monoalphabetic substitution techniques. While obsolete for modern applications due to its vulnerability to brute-force and frequency analysis attacks, the Caesar cipher remains valuable for educational purposes and as a test case for implementing sequential processing, finite state machines, and resource evaluation in FPGA-based platforms. Its simplicity makes it an effective starting point for understanding the relationship between mathematical algorithms and their hardware representation.
 
-\subsection{Classical Cryptography Fundamentals}
-Cryptography is the science and art of protecting information through techniques that transform readable data (plaintext) into unintelligible data (ciphertext), so that only authorized individuals can access its content (Stallings, 2017). Throughout history, cryptography has evolved from simple substitution and transposition methods to complex algorithms based on mathematical theory, modern algebra, and number theory.
-
-Although classical methods are now considered insecure against modern attacks, they provide a foundation for understanding fundamental concepts such as key usage, symmetric encryption, and cryptanalysis. One of the most representative algorithms of classical cryptography is the Caesar cipher, also known as the shift cipher.
-
-\subsection{The Caesar Cipher: Historical Background}
-The Caesar cipher is named after Julius Caesar, who used it to encrypt military communications. Historical records indicate that Caesar applied a shift of three positions to encode his messages (Kahn, 1996). While its simplicity renders it trivial by modern standards, at the time it provided a basic level of protection against untrained or illiterate readers.
-
-This cipher is classified as a monoalphabetic substitution cipher, in which each letter of the alphabet is systematically replaced by another according to a fixed shift key.
 \subsection{Operation of the Algorithm}
 From a mathematical perspective, the Caesar cipher can be represented by the following function:
 \centerline{\(C(x) = ( x + k ) mod n \)}
@@ -241,402 +231,56 @@ Decryption consists of applying the inverse operation:
 
 For example, if the word \textbf{\textit{“HOLA”}} is encrypted with a shift of $k = 3$, the result is \textbf{\textit{“KROD”}}. To decrypt, the inverse shift is applied.
 
-\subsection{Security and Vulnerabilities}
 
-The Caesar cipher is vulnerable to several types of cryptographic attacks:
+The discussion then traced the evolution of digital design methodologies, from early breadboard prototyping to the integration of computer-aided design (CAD) tools, which enabled accurate simulation and validation of electronic systems. The emergence of hardware description languages (HDL) such as VHDL and Verilog marked a turning point by providing standardized, structured methods for system modeling and verification. The subsequent development of SystemVerilog extended these capabilities, incorporating object-oriented programming, functional verification, and reusable testbench environments, thus consolidating the design and verification process within a unified framework.
 
-\begin{itemize}
-\item \textbf{Brute-force attack:} Since there are only 25 possible keys (excluding the null shift), an attacker can test all combinations in a short time.
-\item \textbf{Frequency analysis:} Each language has a characteristic letter distribution. In Spanish, the letters E'', A'', and ''O'' are the most common. If a sufficiently long text is encrypted, these frequencies are preserved, allowing the shift used to be identified.
-\end{itemize}
+A comparative analysis with software engineering highlighted both syntactic similarities and conceptual differences, underlining the importance of adopting a hardware-oriented mindset when aiming for physical synthesis and implementation on FPGA or ASIC platforms. This distinction is essential to ensure that HDL-based models accurately reflect hardware behavior rather than abstract algorithmic processes.
 
-These weaknesses make it unsuitable for any modern application requiring real confidentiality, but it remains useful as a development and educational tool.
-
-\subsection{Usefulness in Cryptographic System Design}
-
-Despite its limitations, the Caesar cipher is frequently used in the design of hardware/software cryptographic systems for educational and experimental purposes. Its simple structure makes it an ideal choice for:
-
-\begin{itemize}
-\item Introducing sequential data processing techniques.
-\item Implementing finite state machines for encoding and decoding.
-\item Evaluating logical resource usage and propagation delays on platforms such as FPGAs.
-\item Comparing the behavior of more complex ciphers with respect to basic algorithms in low-level environments (VHDL, Verilog).
-\end{itemize}
-
-In digital design projects with RTL (Register Transfer Level) architecture, the Caesar cipher is used as a case study to optimize modular shift operations, ASCII character encoding, and key generation.
+Finally, the Altera DE2-115 development board was presented as a versatile and widely adopted prototyping platform. Equipped with a Cyclone IV FPGA, embedded and external memories, extensive I/O interfaces, and compatibility with tools such as Quartus Prime, this board provides the necessary infrastructure for developing, simulating, and validating digital systems. Its relevance in academic and research contexts makes it particularly suitable for projects focused on integrating cryptographic algorithms into reconfigurable hardware architectures.
 
 
 
-\subsection{Background on SystemVerilog}
 
-\subsection{Evolution of Digital Design and the Emergence of SystemVerilog}
-
-The development of digital design has undergone significant transformations since its inception, beginning with physical prototyping using breadboards and evolving to sophisticated computer-aided simulation and modeling platforms. CAD (Computer-Aided Design) tools allowed for more precise and efficient simulation of electronic circuits, although their initial use required overcoming certain technical complexity barriers.
-
-These tools facilitated the implementation of electrical schematics and enabled the definition of input signals consistent with system logic, producing outputs that were easily interpretable. Simulators such as SPICE became benchmarks in both academic and industrial settings by providing accurate modeling of electrical behavior. Once results were validated, the physical circuit design was carried out using specialized printed circuit board (PCB) tools, such as the OrCAD environment, particularly its PCB Layout module.
-
-During this stage, the Adaptable Computing Laboratory began implementing electronic neural circuit models using these platforms (Padrón, 1997). Later, as the complexity of neural network models increased, tools such as MATLAB and its graphical environment SIMULINK were incorporated, allowing a direct mathematical representation of dynamic systems. This evolution enabled more effective interpretation of results, both quantitatively and qualitatively (Padrón et al., 2000, pp. 338–349).
-
-In parallel, the reconfigurable hardware industry, particularly through FPGA boards manufactured by Xilinx, allowed addressing specific problems via programmable interfaces. Each board is designed to offer flexibility to the user, who can program its components in hardware description languages such as Verilog or VHDL and integrate various interfaces depending on the physical or logical availability of the system. This versatility made development kits fundamental tools for designing custom solutions, especially in rapid prototyping and functional validation contexts.
-
-As system-level design requirements grew and verification became a critical stage, SystemVerilog emerged as an extension and evolution of the Verilog language. SystemVerilog not only incorporated improvements in structural and behavioral hardware description but also integrated capabilities for functional verification, object-oriented programming, and complex system modeling. This evolution addressed the need to unify the design and verification flow under a single language, facilitating the implementation of advanced testbenches, reusable interfaces, and verification environments compatible with modern methodologies such as UVM (Universal Verification Methodology).
-
-In this regard, the use of FPGA boards programmed with SystemVerilog allows combining the precision of RTL design with advanced verification capabilities, which is essential in development environments aiming to ensure functionality, performance, and reliability from the early stages of a project. The history and evolution of this language reflect a trend toward consolidating tools that integrate design, simulation, verification, and synthesis within a single development environment.
-
-\textbf{Relevant chronology of SystemVerilog development:}
-\begin{itemize}
-\item 1984: The Verilog language is introduced as a hardware description tool by Gateway Design Automation, later acquired by Cadence (IEEE, 2008).
-\item 1990s: Verilog becomes one of the main standards for digital design, widely used in the electronics industry.
-\item 1999: Development of SystemVerilog begins as an extension of Verilog to address limitations in verification and modeling (Accellera Systems Initiative, 2002).
-\item 2002: SystemVerilog is formally adopted by Accellera as a standard for design and verification.
-\item 2005: SystemVerilog is standardized by IEEE as IEEE 1800-2005, consolidating its industrial use (IEEE, 2005).
-\item 2012: The IEEE 1800-2012 revision is published, incorporating improvements in synthesis and verification.
-\item 2017: The IEEE 1800-2017 revision is published, expanding features for complex system design and verification.
-\end{itemize}
-
-\subsection{Hardware Description Languages (HDL) and Their Application in Digital Design}
-
-Hardware Description Languages (HDL) emerged in response to the need for digital designers to have formal tools that allow the specification, modeling, and verification of digital systems in a structured manner and at different levels of abstraction. These languages not only facilitate communication among designers but also enable smooth interaction between computer-aided design (CAD) tools and the digital models themselves (Terés et al., 1998).
-
-HDL-based development environments integrate compilation, simulation, and synthesis tools, allowing the functional behavior of a design to be validated before its physical implementation. Today, the most widely used HDL languages are VHDL and Verilog, both standardized by the IEEE (Institute of Electrical and Electronics Engineers) and broadly adopted in the digital design industry.
-
-\textbf{VHDL: Description, Application, and Structure}
-
-VHDL (VHSIC Hardware Description Language) was originally developed to document and verify high-speed integrated circuits within the VHSIC program of the U.S. Department of Defense. Its syntax and semantics are based on the ADA programming language, providing a robust structure suitable for critical and real-time systems.
-
-VHDL allows modeling a digital system at different levels of description: behavioral, register-transfer level (RTL), and structural logic level. This enables coverage of nearly the entire digital development cycle, from functional specifications to prototype generation, excluding only the physical layout.
-
-The correct choice of abstraction level in the description depends on the design objective. For instance, if the goal is to generate a physical implementation using synthesis tools, the RTL level is preferred. In contrast, to validate the functionality of complex algorithms through simulation, the algorithmic level is more appropriate (Baena, 2010).
-
-
-\subsection{Comparison between Hardware Description Languages and Software Development}
-
-Since their inception, various computer-aided design (CAD) tools and environments have employed specific languages and formats to represent and manage the diverse elements involved in electronic design. Some of these languages consisted of explicit notations used by the designer to describe inputs to particular tools, while others corresponded to internal intermediate formats, optimized for automated processing within the CAD environment and generally hidden from the designer.
-
-However, these descriptions were limited to the particular ecosystem of each tool, offering neither portability nor standardization. The emergence of Hardware Description Languages (HDL) represented a significant advance by introducing a higher degree of standardization and incorporating principles from software engineering into the specification and modeling of digital hardware.
-
-From a syntactic perspective, HDLs share similarities with high-level programming languages (HLL), which facilitates their learning for engineers with prior software development experience. For example, Verilog shares many features with the C language, whereas VHDL inherits its structure and semantics from the ADA language. While these similarities can accelerate HDL adoption, they can also lead to conceptual errors if software-oriented strategies are applied in contexts where an accurate representation of the hardware's physical behavior is required.
-
-It is essential that, when an HDL model is intended for synthesis and physical implementation (e.g., on FPGAs or ASICs), the designer adopts a hardware-oriented mindset, describing the logic using a structural or register-transfer level (RTL) approach rather than merely an algorithmic one. Conversely, employing software-like structures can be appropriate when the goal is solely functional simulation of the system, optimizing performance during verification and timing analysis stages.
-
-In summary, HDLs are high-level formal languages specifically designed to represent electronic circuits at various levels of abstraction—from basic logic gates to complete digital systems—and allow flexible, structured, and precise hardware modeling, leveraging concepts from both electronic design and software development, as shown in Figure \ref{fig:imagen1}.
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.5\textwidth, height=6cm]{imagenes/img1}
-\caption{Abstraction/precision levels and VHDL modeling styles.}
-\label{fig:imagen1}
-\end{figure}
-
-HDLs were initially developed to model the functional behavior of electronic components, enabling simulation prior to physical implementation. Nevertheless, they are also widely used for the structural description of digital circuits, facilitating subsequent synthesis and verification through validated simulation processes (Figure \ref{fig:imagen2}).
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.7\textwidth, height=6cm]{imagenes/img2}
-\caption{Software versus hardware development: (a) abstraction levels and high-level languages, and (b) basic top-down design scheme using HDL.}
-\label{fig:imagen2}
-\end{figure}
-
-Building on the initial descriptions, top-down design approaches allow progressive synthesis processes that gradually lead to more detailed implementation levels, ultimately achieving a specific, technology-dependent physical description. Validation at each stage of the design is performed through functional simulations and analyses, enabling successive verification and correction iterations until the behavior conforms to the specified requirements (Figure \ref{fig:imagen2}(b)).
-
-
-\section{Description of the Altera DE2-115 Development Board}
-
-The Altera DE2-115 board, developed by Terasic Technologies, is a prototyping platform based on the Altera (now Intel) Cyclone IV EP4CE115F29C7N FPGA, designed for educational environments, research, and advanced digital system development. This board offers a versatile architecture that allows implementation ranging from basic logic designs to complex digital systems, including embedded systems, custom controllers, digital signal processing (DSP), and System-on-Chip (SoC) prototypes.
-
-Key features include 114,480 logic elements (LEs), 3,888 Kbits of embedded RAM, and 528 general-purpose input/output (GPIO) pins, providing significant flexibility for interfacing with multiple peripheral devices. The board also includes external memory such as 128 MB SDRAM, 2 MB SRAM, and 2 MB NOR Flash, in addition to SD card support for external storage.
-
-The DE2-115 incorporates essential interfaces for developing interactive systems, including USB ports, Gigabit Ethernet, VGA output, audio input/output, and a set of integrated user I/O devices such as switches, buttons, LEDs, and seven-segment displays. Additionally, it features a 50 MHz crystal oscillator and expansion connectors compatible with additional modules.
-
-This platform is widely used in academic laboratories and applied research environments due to its compatibility with development tools such as Quartus Prime, facilitating the implementation of designs in HDL languages like VHDL and SystemVerilog. Its capability to perform simulation, verification, and synthesis of designs within a single tool makes it ideal for higher education projects in electronic engineering, mechatronics, and digital systems Figure \ref{fig:imagen3}.
-
-\textbf{Highlighted Technical Specifications:}
-
-\textbf{FPGA:} Altera Cyclone IV EP4CE115F29C7N with 114,480 logic elements (LEs)
-
-\begin{itemize}
-\item \textbf{Memory:}
-\begin{itemize}
-\item 2 MB SRAM
-\item 128 MB SDRAM
-\item 2 MB NOR Flash
-\item SD card for external storage
-\end{itemize}
-\item \textbf{User Interfaces:}
-\begin{itemize}
-\item 18 switches and 18 push-buttons
-\item 18 red LEDs and 9 green LEDs
-\item 8 seven-segment displays
-\end{itemize}
-\item \textbf{Connectivity:}
-\begin{itemize}
-\item USB Type-A and Type-B ports
-\item 10/100/1000 Mbps Ethernet port (Gigabit)
-\item VGA input/output
-\item 40-pin GPIO expansion connectors
-\end{itemize}
-\item \textbf{Audio and Video:}
-\begin{itemize}
-\item Audio input/output (3.5 mm jack)
-\item VGA signal input (with ADC) and VGA output
-\end{itemize}
-\item \textbf{Clock:} 50 MHz crystal oscillator
-\item \textbf{Programming and Debugging:} JTAG support, compatible with Quartus II
-\end{itemize}
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=1\textwidth, height=13cm]{imagenes/img3}
-\caption{Altera DE2-115 Development Board.}
-\label{fig:imagen3}
-\end{figure}
-
-\begin{quote}
-This is an example of a quote.
-\end{quote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
 
+In order to validate the proposed obfuscation mechanism as an enhancement to the traditional Caesar cipher, a series of experiments were conducted both in software and hardware domains. The primary objective was to demonstrate that the integration of an additional obfuscation layer not only increases the complexity of deciphering the encrypted message but also preserves functional equivalence between the software prototype and its hardware implementation.
 
-
-This section may be divided by subheadings. It should provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn.
-\subsection{Subsection}
-\subsubsection{Subsubsection}
-
-Bulleted lists look like this:
-\begin{itemize}
-\item	First bullet;
-\item	Second bullet;
-\item	Third bullet.
-\end{itemize}
-
-Numbered lists can be added as follows:
-\begin{enumerate}
-\item	First item; 
-\item	Second item;
-\item	Third item.
-\end{enumerate}
-
-The text continues here.
-
-\subsection{Figures, Tables and Schemes}
-
-All figures and tables should be cited in the main text as Figure~\ref{fig1}, Table~\ref{tab1}, etc.
+The first stage of the experimentation involved the development of a Python script that implemented the Caesar cipher combined with the proposed obfuscation technique. This environment allowed rapid prototyping and verification of functional correctness. Various input datasets, including alphanumeric strings and binary sequences, were subjected to encryption and decryption tests. Statistical measures were then applied to evaluate the distribution of ciphertext characters Fig. \ref{fig1}, aiming to confirm that the obfuscation achieved a reduction in predictable frequency patterns typically exploitable in classical substitution ciphers. The resulting charts demonstrated a noticeable flattening of character frequency distributions, indicating that the modified cipher effectively mitigates one of the main weaknesses of the traditional Caesar scheme.
 
 \begin{figure}[H]
 %\isPreprints{\centering}{} % Only used for preprints
-\includegraphics[width=4 cm]{Definitions/logo-mdpi}
-\caption{This is a figure. Schemes follow the same formatting.\label{fig1}}
+%\includegraphics[width=4 cm]{imagenes/img1}
+ \includegraphics[width=1\textwidth, height=5 cm]{imagenes/img1} % Reemplaza con el nombre de tu archivo de imagen
+\caption{Plain Spanish text distribution.\label{fig1}}
 \end{figure}   
 \unskip
 
-\begin{table}[H] 
-%\small % Change table font size
-\caption{This is a table caption. Tables should be placed in the main text near to the first time they are~cited.\label{tab1}}
-%\isPreprints{\centering}{} % Only used for preprints
-\begin{tabularx}{\textwidth}{CCC}
-\toprule
-\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
-\midrule
-Entry 1		& Data			& Data\\
-Entry 2		& Data			& Data \textsuperscript{1}\\
-\bottomrule
-\end{tabularx}
 
-\noindent{\footnotesize{\textsuperscript{1} Tables may have a footer.}}
-\end{table}
+Following successful validation in the software domain, the algorithm was translated into a hardware description suitable for FPGA implementation. Specifically, an RTL (Register Transfer Level) block was designed using VHDL to replicate the operations of both the Caesar cipher and the obfuscation layer. The choice of RTL ensured that the design remained synthesizable and could be physically deployed on the Altera DE2-115 FPGA platform. This translation process required special attention to timing, resource utilization, and concurrency management, as hardware execution introduces constraints not present in sequential software execution.
 
-The text continues here (Figure~\ref{fig2} and Table~\ref{tab2}).
+Simulation of the RTL block was performed prior to synthesis, ensuring that the output matched the reference Python implementation across all test vectors. Waveform analysis confirmed correct alignment of data paths, clock synchronization, and control logic behavior. Subsequently, the design was synthesized, placed, and routed onto the FPGA. Resource utilization reports indicated that the additional obfuscation logic introduced only a modest increase in logic element consumption, remaining well within the capacity of the Cyclone IV device.
 
-% Example of a figure that spans the whole page width and with subfigures. The same concept works for tables, too.
+To further validate the effectiveness of the hardware design, experimental results were collected directly from the FPGA implementation. Input text sequences were encrypted, processed through the obfuscation mechanism, and then decrypted in real time. The resulting ciphertexts were again subjected to statistical frequency analysis Fig. \ref{fig2}. Comparison between the software-generated and hardware-generated distributions confirmed functional equivalence: both platforms achieved similar levels of character dispersion and unpredictability.
+
+
 \begin{figure}[H]
-%\isPreprints{}{% This command is only used for ``preprints''.
-\begin{adjustwidth}{-\extralength}{0cm}
-\centering
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
-%\hfill
-\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}\\
-\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
-%\hfill
-\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
-%\isPreprints{}{% This command is only used for ``preprints''.
-\end{adjustwidth}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-\caption{This is a wide figure. Schemes follow the same formatting. If there are multiple panels, they should be listed as: (\textbf{a}) Description of what is contained in the first panel. (\textbf{b}) Description of what is contained in the second panel. (\textbf{c}) Description of what is contained in the third panel. (\textbf{d}) Description of what is contained in the fourth panel. Figures should be placed in the main text near to the first time they are cited. A caption on a single line should be centered.\label{fig2}}
-\end{figure} 
+%\isPreprints{\centering}{} % Only used for preprints
+%\includegraphics[width=4 cm]{imagenes/img1}
+ \includegraphics[width=1\textwidth, height=5 cm]{imagenes/img2} % Reemplaza con el nombre de tu archivo de imagen
+\caption{Exit text hardware-generated obfuscation distribution.\label{fig2}}
+\end{figure}   
+\unskip
 
-\begin{table}[H]
-\caption{This is a wide table.\label{tab2}}
-%\isPreprints{\centering}{% This command is only used for ``preprints''.
-	\begin{adjustwidth}{-\extralength}{0cm}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-%\isPreprints{\begin{tabularx}{\textwidth}{CCCC}}{% This command is only used for ``preprints''.
-		\begin{tabularx}{\fulllength}{CCCC}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-			\toprule
-			\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}     & \textbf{Title 4}\\
-			\midrule
-\multirow[m]{3}{*}{Entry 1 *}	& Data			& Data			& Data\\
-			  	                   & Data			& Data			& Data\\
-			             	      & Data			& Data			& Data\\
-                   \midrule
-\multirow[m]{3}{*}{Entry 2}    & Data			& Data			& Data\\
-			  	                  & Data			& Data			& Data\\
-			             	     & Data			& Data			& Data\\
-			\bottomrule
-		\end{tabularx}
-%		\isPreprints{}{% This command is only used for ``preprints''.
-	\end{adjustwidth}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-	\noindent{\footnotesize{* Tables may have a footer.}}
-\end{table}
-
-%\begin{listing}[H]
-%\caption{Title of the listing}
-%\rule{\columnwidth}{1pt}
-%\raggedright Text of the listing. In font size footnotesize, small, or normalsize. Preferred format: left aligned and single spaced. Preferred border format: top border line and bottom border line.
-%\rule{\columnwidth}{1pt}
-%\end{listing}
-
-Text.
-
-Text.
-
-\subsection{Formatting of Mathematical Components}
-
-This is the example 1 of equation:
-\begin{linenomath}
-\begin{equation}
-a = 1,
-\end{equation}
-\end{linenomath}
-the text following an equation need not be a new paragraph. Please punctuate equations as regular text.
-%% If the documentclass option "submit" is chosen, please insert a blank line before and after any math environment (equation and eqnarray environments). This ensures correct linenumbering. The blank line should be removed when the documentclass option is changed to "accept" because the text following an equation should not be a new paragraph.
-
-This is the example 2 of equation:
-%\isPreprints{}{% This command is only used for ``preprints''.
-\begin{adjustwidth}{-\extralength}{0cm}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-\begin{equation}
-a = b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + w + x + y + z
-\end{equation}
-%\isPreprints{}{% This command is only used for ``preprints''.
-\end{adjustwidth}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-
-%% Example of a page in landscape format (with table and table footnote).
-%\startlandscape
-%\begin{table}[H] %% Table in wide page
-%%\isPreprints{\centering}{} % This command is only used for ``preprints''.
-%\caption{This is a very wide table.\label{tab3}}
-%	\begin{tabularx}{\textwidth}{CCCC}
-%		\toprule
-%		\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}	& \textbf{Title 4}\\
-%		\midrule
-%		Entry 1		& Data			& Data			& This cell has some longer content that runs over two lines.\\
-%		Entry 2		& Data			& Data			& Data\textsuperscript{1}\\
-%		\bottomrule
-%	\end{tabularx}
-%%\isPreprints{}{% This command is only used for ``preprints''.
-%	\begin{adjustwidth}{+\extralength}{0cm}
-%%} % If the paper is ``preprints'', please uncomment this parenthesis.
-%		\noindent\footnotesize{\textsuperscript{1} This is a table footnote.}
-%%\isPreprints{}{% This command is only used for ``preprints''.
-%	\end{adjustwidth}
-%%} % If the paper is ``preprints'', please uncomment this parenthesis.
-%\end{table}
-%\finishlandscape
+In summary, the experimental results provide strong evidence that the proposed obfuscation technique enhances the Caesar cipher without compromising its functional reliability. The consistency observed between the Python prototype and the FPGA-based RTL implementation demonstrates that the approach is both feasible and scalable across computational platforms. Furthermore, the low hardware resource overhead highlights the practicality of deploying the system in constrained environments where lightweight yet effective cryptographic mechanisms are required.
 
 
-Please punctuate equations as regular text. Theorem-type environments (including propositions, lemmas, corollaries etc.) can be formatted as follows:
-%% Example of a theorem:
-\begin{Theorem}
-Example text of a theorem.
-\end{Theorem}
 
-The text continues here. Proofs must be formatted as follows:
 
-%% Example of a proof:
-\begin{proof}[Proof of Theorem 1]
-Text of the proof. Note that the phrase ``of Theorem 1'' is optional if it is clear which theorem is being referred to.
-\end{proof}
-The text continues here.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion}
-
-Authors should discuss the results and how they can be interpreted from the perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusions}
-
-This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Patents}
-
-This section is not mandatory, but may be added if there are patents resulting from the work reported in this manuscript.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{6pt} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% optional
-%\supplementary{The following supporting information can be downloaded at:  \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title.}
-
-% Only for journal Methods and Protocols:
-% If you wish to submit a video article, please do so with any other supplementary material.
-% \supplementary{The following supporting information can be downloaded at: \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title. A supporting video article is available at doi: link.}
-
-% Only used for preprtints:
-% \supplementary{The following supporting information can be downloaded at the website of this paper posted on \href{https://www.preprints.org/}{Preprints.org}.}
-
-% Only for journal Hardware:
-% If you wish to submit a video article, please do so with any other supplementary material.
-% \supplementary{The following supporting information can be downloaded at: \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title.\vspace{6pt}\\
-%\begin{tabularx}{\textwidth}{lll}
-%\toprule
-%\textbf{Name} & \textbf{Type} & \textbf{Description} \\
-%\midrule
-%S1 & Python script (.py) & Script of python source code used in XX \\
-%S2 & Text (.txt) & Script of modelling code used to make Figure X \\
-%S3 & Text (.txt) & Raw data from experiment X \\
-%S4 & Video (.mp4) & Video demonstrating the hardware in use \\
-%... & ... & ... \\
-%\bottomrule
-%\end{tabularx}
-%}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\authorcontributions{For research articles with several authors, a short paragraph specifying their individual contributions must be provided. The following statements should be used ``Conceptualization, X.X. and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y. and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation, X.X.; writing---original draft preparation, X.X.; writing---review and editing, X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding acquisition, Y.Y. All authors have read and agreed to the published version of the manuscript.'', please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work~reported.}
-
-\funding{Please add: ``This research received no external funding'' or ``This research was funded by NAME OF FUNDER grant number XXX.'' and  and ``The APC was funded by XXX''. Check carefully that the details given are accurate and use the standard spelling of funding agency names at \url{https://search.crossref.org/funding}, any errors may affect your future funding.}
-
-\institutionalreview{In this section, you should add the Institutional Review Board Statement and approval number, if relevant to your study. You might choose to exclude this statement if the study did not require ethical approval. Please note that the Editorial Office might ask you for further information. Please add “The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving humans. OR “The animal study protocol was approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving animals. OR “Ethical review and approval were waived for this study due to REASON (please provide a detailed justification).” OR “Not applicable” for studies not involving humans or animals.}
-
-\informedconsent{Any research article describing a study involving humans should contain this statement. Please add ``Informed consent was obtained from all subjects involved in the study.'' OR ``Patient consent was waived due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans. You might also choose to exclude this statement if the study did not involve humans.
-
-Written informed consent for publication must be obtained from participating patients who can be identified (including by the patients themselves). Please state ``Written informed consent has been obtained from the patient(s) to publish this paper'' if applicable.}
-
-\dataavailability{We encourage all authors of articles published in MDPI journals to share their research data. In this section, please provide details regarding where data supporting reported results can be found, including links to publicly archived datasets analyzed or generated during the study. Where no new data were created, or where data is unavailable due to privacy or ethical restrictions, a statement is still required. Suggested Data Availability Statements are available in section ``MDPI Research Data Policies'' at \url{https://www.mdpi.com/ethics}.} 
-
-% Only for journal Drones
-%\durcstatement{Current research is limited to the [please insert a specific academic field, e.g., XXX], which is beneficial [share benefits and/or primary use] and does not pose a threat to public health or national security. Authors acknowledge the dual-use potential of the research involving xxx and confirm that all necessary precautions have been taken to prevent potential misuse. As an ethical responsibility, authors strictly adhere to relevant national and international laws about DURC. Authors advocate for responsible deployment, ethical considerations, regulatory compliance, and transparent reporting to mitigate misuse risks and foster beneficial outcomes.}
-
-% Only for journal Nursing Reports
-%\publicinvolvement{Please describe how the public (patients, consumers, carers) were involved in the research. Consider reporting against the GRIPP2 (Guidance for Reporting Involvement of Patients and the Public) checklist. If the public were not involved in any aspect of the research add: ``No public involvement in any aspect of this research''.}
-%
-%% Only for journal Nursing Reports
-%\guidelinesstandards{Please add a statement indicating which reporting guideline was used when drafting the report. For example, ``This manuscript was drafted against the XXX (the full name of reporting guidelines and citation) for XXX (type of research) research''. A complete list of reporting guidelines can be accessed via the equator network: \url{https://www.equator-network.org/}.}
-%
-%% Only for journal Nursing Reports
-%\useofartificialintelligence{Please describe in detail any and all uses of artificial intelligence (AI) or AI-assisted tools used in the preparation of the manuscript. This may include, but is not limited to, language translation, language editing and grammar, or generating text. Alternatively, please state that “AI or AI-assisted tools were not used in drafting any aspect of this manuscript”.}
-
-\acknowledgments{In this section you can acknowledge any support given which is not covered by the author contribution or funding sections. This may include administrative and technical support, or donations in kind (e.g., materials used for experiments). Where GenAI has been used for purposes such as generating text, data, or graphics, or for study design, data collection, analysis, or interpretation of data, please add “During the preparation of this manuscript/study, the author(s) used [tool name, version information] for the purposes of [description of use]. The authors have reviewed and edited the output and take full responsibility for the content of this publication.”}
-
-\conflictsofinterest{Declare conflicts of interest or state ``The authors declare no conflicts of interest.'' Authors must identify and declare any personal circumstances or interest that may be perceived as inappropriately influencing the representation or interpretation of reported research results. Any role of the funders in the design of the study; in the collection, analyses or interpretation of data; in the writing of the manuscript; or in the decision to publish the results must be declared in this section. If there is no role, please state ``The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results''.} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Optional
@@ -644,43 +288,13 @@ Written informed consent for publication must be obtained from participating pat
 %% Only for journal Encyclopedia
 %\entrylink{The Link to this entry published on the encyclopedia platform.}
 
-\abbreviations{Abbreviations}{
-The following abbreviations are used in this manuscript:
-\\
-
-\noindent 
-\begin{tabular}{@{}ll}
-MDPI & Multidisciplinary Digital Publishing Institute\\
-DOAJ & Directory of open access journals\\
-TLA & Three letter acronym\\
-LD & Linear dichroism
-\end{tabular}
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Optional
 \appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
 \appendixstart
 \appendix
-\section[\appendixname~\thesection]{}
-\subsection[\appendixname~\thesubsection]{}
-The appendix is an optional section that can contain details and data supplemental to the main text---for example, explanations of experimental details that would disrupt the flow of the main text but nonetheless remain crucial to understanding and reproducing the research shown; figures of replicates for experiments of which representative data are shown in the main text can be added here if brief, or as Supplementary Data. Mathematical proofs of results not central to the paper can be added as an appendix.
-
-\begin{table}[H] 
-\caption{This is a table caption.\label{tab5}}
-%\newcolumntype{C}{>{\centering\arraybackslash}X}
-\begin{tabularx}{\textwidth}{CCC}
-\toprule
-\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
-\midrule
-Entry 1		& Data			& Data\\
-Entry 2		& Data			& Data\\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\section[\appendixname~\thesection]{}
-All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
+%\section[\appendixname~\thesection]{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\isPreprints{}{% This command is only used for ``preprints''.
@@ -706,84 +320,28 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 \isAPAandChicago{}{%
 \begin{thebibliography}{999}
 % Reference 1
-\bibitem[Author1(year)]{ref-journal}
-Author~1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
-% Reference 2
-\bibitem[Author2(year)]{ref-book1}
-Author~2, L. The title of the cited contribution. In {\em The Book Title}; Editor 1, F., Editor 2, A., Eds.; Publishing House: City, Country, 2007; pp. 32--58.
-% Reference 3
-\bibitem[Author1 and Author2 (year)]{ref-book2}
-Author 1, A.; Author 2, B. \textit{Book Title}, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp. 154--196.
-% Reference 4
-\bibitem[Author4(year)]{ref-unpublish}
-Author 1, A.B.; Author 2, C. Title of Unpublished Work. \textit{Abbreviated Journal Name} year, \textit{phrase indicating stage of publication (submitted; accepted; in press)}.
-% Reference 5
-\bibitem[Author8(year)]{ref-url}
-Title of Site. Available online: URL (accessed on Day Month Year).
-% Reference 6
-\bibitem[Author6(year)]{ref-proceeding}
-Author 1, A.B.; Author 2, C.D.; Author 3, E.F. Title of presentation. In Proceedings of the Name of the Conference, Location of Conference, Country, Date of Conference (Day Month Year); Abstract Number (optional), Pagination (optional).
-% Reference 7
-\bibitem[Author7(year)]{ref-thesis}
-Author 1, A.B. Title of Thesis. Level of Thesis, Degree-Granting University, Location of University, Date of Completion.
+\bibitem IEEE Standards Association. (1995). IEEE Standard Verilog Hardware Description Language (IEEE Std 1364-1995). Institute of Electrical and Electronics Engineers.
+\bibitem IEEE Standards Association. (2005). IEEE Standard for SystemVerilog—Unified Hardware Design, Specification, and Verification Language (IEEE Std 1800-2005). Institute of Electrical and Electronics Engineers.
+\bibitem Palnitkar, S. (2003). Verilog HDL: A Guide to Digital Design and Synthesis (2nd ed.). Prentice Hall.
+\bibitem Edad del Hierro
+\bibitem Kahn, D. (1996). The codebreakers: The comprehensive history of secret communication from ancient times to the Internet (2nd ed.). Scribner.
+\bibitem Schneier, B. (2015). Applied cryptography: Protocols, algorithms, and source code in C (20th anniversary ed.). Wiley.
+\bibitem Singh, S. (2000). The code book: The science of secrecy from ancient Egypt to quantum cryptography. Anchor Books.
+\bibitem Stallings, W. (2017). Cryptography and network security: Principles and practice (7th ed.). Pearson.
+\bibitem	Accellera Systems Initiative. (2002). SystemVerilog Language Reference Manual. Accellera. https://www.accellera.org/
+\bibitem IEEE Standards Association. (2005). IEEE Standard for SystemVerilog—Unified Hardware Design, Specification, and Verification Language (IEEE Std 
+\bibitem 1800-2005). IEEE. https://doi.org/10.1109/IEEESTD.2005.93210
+\bibitem IEEE Standards Association. (2008). IEEE Standard Verilog Hardware Description Language. IEEE.
+\bibitem Padrón, L. (1997). Implementación de modelos de circuitos neuronales electrónicos. Laboratorio de Computación Adaptable.
+\bibitem Padrón, L., et al. (2000). Modelado y simulación de redes neuronales electrónicas usando MATLAB y SIMULINK. Revista de Computación Adaptable, 12(3), 338–349.
+\bibitem Terasic Technologies. (s.f.). DE2-115 User Manual. Recuperado de https://www.terasic.com.tw
+\bibitem Intel Corporation. (2020). Cyclone IV Device Handbook (Volume 1 \& 2). Retrieved from https://www.intel.com
+\bibitem Vahid, F., \& Givargis, T. (2010). Embedded System Design: A Unified Hardware/Software Introduction (2nd ed.). Wiley.
+
+
 \end{thebibliography}
 }
 
-% Chicago format (Used for journal: arts, genealogy, histories, humanities, jintelligence, laws, literature, religions, risks, socsci)
-\isChicagoStyle{%
-\begin{thebibliography}{999}
-% Reference 1
-\bibitem[Aranceta-Bartrina(1999a)]{ref-journal}
-Aranceta-Bartrina, Javier. 1999a. Title of the cited article. \textit{Journal Title} 6: 100--10.
-% Reference 2
-\bibitem[Aranceta-Bartrina(1999b)]{ref-book1}
-Aranceta-Bartrina, Javier. 1999b. Title of the chapter. In \textit{Book Title}, 2nd ed. Edited by Editor 1 and Editor 2. Publication place: Publisher, vol. 3, pp. 54–96.
-% Reference 3
-\bibitem[Baranwal and Munteanu {[1921]}(1955)]{ref-book2}
-Baranwal, Ajay K., and Costea Munteanu. 1955. \textit{Book Title}. Publication place: Publisher, pp. 154--96. First published 1921 (op-tional).
-% Reference 4
-\bibitem[Berry and Smith(1999)]{ref-thesis}
-Berry, Evan, and Amy M. Smith. 1999. Title of Thesis. Level of Thesis, Degree-Granting University, City, Country. Identifi-cation information (if available).
-% Reference 5
-\bibitem[Cojocaru et al.(1999)]{ref-unpublish}
-Cojocaru, Ludmila, Dragos Constatin Sanda, and Eun Kyeong Yun. 1999. Title of Unpublished Work. \textit{Journal Title}, phrase indicating stage of publication.
-% Reference 6
-\bibitem[Driver et al.(2000)]{ref-proceeding}
-Driver, John P., Steffen Rohrs, and Sean Meighoo. 2000. Title of Presentation. In \textit{Title of the Collected Work} (if available). Paper presented at Name of the Conference, Location of Conference, Date of Conference.
-% Reference 7
-\bibitem[Harwood(2008)]{ref-url}
-Harwood, John. 2008. Title of the cited article. Available online: URL (accessed on Day Month Year).
-\end{thebibliography}
-}{}
-
-% APA format (Used for journal: admsci, behavsci, businesses, econometrics, economies, education, ejihpe, games, humans, ijfs, journalmedia, jrfm, languages, psycholint, publications, tourismhosp, youth)
-\isAPAStyle{%
-\begin{thebibliography}{999}
-% Reference 1
-\bibitem[\protect\citeauthoryear{Azikiwe \BBA\ Bello}{{2020a}}]{ref-journal}
-Azikiwe, H., \& Bello, A. (2020a). Title of the cited article. \textit{Journal Title}, \textit{Volume}(Issue), 
-Firstpage--Lastpage/Article Number.
-% Reference 2
-\bibitem[\protect\citeauthoryear{Azikiwe \BBA\ Bello}{{2020b}}]{ref-book1}
-Azikiwe, H., \& Bello, A. (2020b). \textit{Book title}. Publisher Name.
-% Reference 3
-\bibitem[Davison(1623/2019)]{ref-book2}
-Davison, T. E. (2019). Title of the book chapter. In A. A. Editor (Ed.), \textit{Title of the book: Subtitle} 
-(pp. Firstpage--Lastpage). Publisher Name. (Original work published 1623) (Optional).
-% Reference 4
-\bibitem[Fistek et al.(2017)]{ref-proceeding}
-Fistek, A., Jester, E., \& Sonnenberg, K. (2017, Month Day). Title of contribution [Type of contribution]. Conference Name, Conference City, Conference Country.
-% Reference 5
-\bibitem[Hutcheson(2012)]{ref-thesis}
-Hutcheson, V. H. (2012). \textit{Title of the thesis} [XX Thesis, Name of Institution Awarding the Degree].
-% Reference 6
-\bibitem[Lippincott \& Poindexter(2019)]{ref-unpublish}
-Lippincott, T., \& Poindexter, E. K. (2019). \textit{Title of the unpublished manuscript} [Unpublished manuscript/Manuscript in prepara-tion/Manuscript submitted for publication]. Department Name, Institution Name.
-% Reference 7
-\bibitem[Harwood(2008)]{ref-url}
-Harwood, J. (2008). \textit{Title of the cited article}. Available online: URL (accessed on Day Month Year).
-\end{thebibliography}
-}{}
 
 % If authors have biography, please use the format below
 %\section*{Short Biography of Authors}
