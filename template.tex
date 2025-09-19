@@ -121,11 +121,11 @@ $^{1}$ \quad Affiliation 1; christian.upiita@gmai.com\\
 $^{2}$ \quad Affiliation 2; gduchen@ieee.org\\
 $^{3}$ \quad Affiliation 3; caaann@gmail.com}
 % Contact information of the corresponding author
-\corres{Correspondence: e-mail@e-mail.com; Tel.: (optional; include country code; if there are multiple corresponding authors, add author initials) +xx-xxxx-xxx-xxxx (F.L.)}
+%\corres{Correspondence: e-mail@e-mail.com; Tel.: (optional; include country code; if there are multiple corresponding authors, add author initials) +xx-xxxx-xxx-xxxx (F.L.)}
 
 % Current address and/or shared authorship
-\firstnote{Current address: Affiliation.}  % Current address should not be the same as any items in the Affiliation section.
-\secondnote{These authors contributed equally to this work.}
+%\firstnote{Current address: Affiliation.}  % Current address should not be the same as any items in the Affiliation section.
+%\secondnote{These authors contributed equally to this work.}
 % The commands \thirdnote{} till \eighthnote{} are available for further notes
 
 %\simplesumm{} % Simple summary
@@ -247,7 +247,7 @@ Finally, the Altera DE2-115 development board was presented as a versatile and w
 
 In order to validate the proposed obfuscation mechanism as an enhancement to the traditional Caesar cipher, a series of experiments were conducted both in software and hardware domains. The primary objective was to demonstrate that the integration of an additional obfuscation layer not only increases the complexity of deciphering the encrypted message but also preserves functional equivalence between the software prototype and its hardware implementation.
 
-The first stage of the experimentation involved the development of a Python script that implemented the Caesar cipher combined with the proposed obfuscation technique. This environment allowed rapid prototyping and verification of functional correctness. Various input datasets, including alphanumeric strings and binary sequences, were subjected to encryption and decryption tests. Statistical measures were then applied to evaluate the distribution of ciphertext characters Fig. \ref{fig1}, aiming to confirm that the obfuscation achieved a reduction in predictable frequency patterns typically exploitable in classical substitution ciphers. The resulting charts demonstrated a noticeable flattening of character frequency distributions, indicating that the modified cipher effectively mitigates one of the main weaknesses of the traditional Caesar scheme.
+The first stage of the experimentation involved the development of a Python script that implemented the Caesar cipher combined with the proposed obfuscation technique. This environment allowed rapid prototyping and verification of functional correctness. Various input datasets, including alphanumeric strings and binary sequences, were subjected to encryption and decryption tests. Statistical measures were then applied to evaluate the distribution of ciphertext characters Fig \ref{fig1}, aiming to confirm that the obfuscation achieved a reduction in predictable frequency patterns typically exploitable in classical substitution ciphers. The resulting charts demonstrated a noticeable flattening of character frequency distributions, indicating that the modified cipher effectively mitigates one of the main weaknesses of the traditional Caesar scheme.
 
 \begin{figure}[H]
 %\isPreprints{\centering}{} % Only used for preprints
@@ -260,9 +260,18 @@ The first stage of the experimentation involved the development of a Python scri
 
 Following successful validation in the software domain, the algorithm was translated into a hardware description suitable for FPGA implementation. Specifically, an RTL (Register Transfer Level) block was designed using VHDL to replicate the operations of both the Caesar cipher and the obfuscation layer. The choice of RTL ensured that the design remained synthesizable and could be physically deployed on the Altera DE2-115 FPGA platform. This translation process required special attention to timing, resource utilization, and concurrency management, as hardware execution introduces constraints not present in sequential software execution.
 
-Simulation of the RTL block was performed prior to synthesis, ensuring that the output matched the reference Python implementation across all test vectors. Waveform analysis confirmed correct alignment of data paths, clock synchronization, and control logic behavior. Subsequently, the design was synthesized, placed, and routed onto the FPGA. Resource utilization reports indicated that the additional obfuscation logic introduced only a modest increase in logic element consumption, remaining well within the capacity of the Cyclone IV device.
+Simulation of the RTL block was performed prior to synthesis, ensuring that the output matched the reference Python implementation across all test vectors. Waveform analysis confirmed correct alignment of data paths, clock synchronization, and control logic behavior. Subsequently, the design was synthesized, placed, and routed onto the FPGA. Resource utilization reports indicated that the additional obfuscation logic introduced only a modest increase in logic element consumption, remaining well within the capacity of the Cyclone IV device Fig \ref{fig3}.
+\unskip
+\begin{figure}[H]
+%\isPreprints{\centering}{} % Only used for preprints
+%\includegraphics[width=4 cm]{imagenes/img1}
+ \includegraphics[width=1\textwidth, height=9 cm]{imagenes/img3} % Reemplaza con el nombre de tu archivo de imagen
+\caption{ Altera DE2-115 FPGA.\label{fig3}}
+\end{figure}   
+\unskip
 
-To further validate the effectiveness of the hardware design, experimental results were collected directly from the FPGA implementation. Input text sequences were encrypted, processed through the obfuscation mechanism, and then decrypted in real time. The resulting ciphertexts were again subjected to statistical frequency analysis Fig. \ref{fig2}. Comparison between the software-generated and hardware-generated distributions confirmed functional equivalence: both platforms achieved similar levels of character dispersion and unpredictability.
+
+To further validate the effectiveness of the hardware design, experimental results were collected directly from the FPGA implementation. Input text sequences were encrypted, processed through the obfuscation mechanism, and then decrypted in real time. The resulting ciphertexts were again subjected to statistical frequency analysis Fig \ref{fig2}. Comparison between the software-generated and hardware-generated distributions confirmed functional equivalence: both platforms achieved similar levels of character dispersion and unpredictability.
 
 
 \begin{figure}[H]
