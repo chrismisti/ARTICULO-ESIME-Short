@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.16)  19 SEP 2025 01:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.16)  19 SEP 2025 23:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1235,9 +1235,6 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 (template.aux
 
-Package natbib Warning: Citation `I' multiply defined.
-
-
 Package natbib Warning: Citation `S' multiply defined.
 
 
@@ -1248,9 +1245,6 @@ Package natbib Warning: Citation `I' multiply defined.
 
 
 Package natbib Warning: Citation `I' multiply defined.
-
-
-Package natbib Warning: Citation `P' multiply defined.
 
 
 Package natbib Warning: Citation `P' multiply defined.
@@ -1466,13 +1460,13 @@ Package epstopdf Info: Source file: <Definitions/logo-mdpi.eps>
 i-eps-converted-to.pdf Definitions/logo-mdpi.eps>
 (epstopdf)             \includegraphics on input line 187.
 Package epstopdf Info: Output file is already uptodate.
-<Definitions/logo-mdpi-eps-converted-to.pdf, id=31, 74.2775pt x 49.18375pt>
+<Definitions/logo-mdpi-eps-converted-to.pdf, id=35, 74.2775pt x 49.18375pt>
 File: Definitions/logo-mdpi-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-mdpi-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-mdpi-eps-converted-to.pdf  used on in
 put line 187.
 (pdftex.def)             Requested size: 42.96877pt x 28.45274pt.
-<Definitions/logo-orcid.pdf, id=33, 102.3825pt x 102.3825pt>
+<Definitions/logo-orcid.pdf, id=37, 102.3825pt x 102.3825pt>
 File: Definitions/logo-orcid.pdf Graphic file (type pdf)
 <use Definitions/logo-orcid.pdf>
 Package pdftex.def Info: Definitions/logo-orcid.pdf  used on input line 187.
@@ -1499,7 +1493,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 {C:/Users/chris/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/chri
 s/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./Definitions/log
 o-mdpi-eps-converted-to.pdf> <./Definitions/logo-orcid.pdf>]
-Overfull \hbox (57.48203pt too wide) in paragraph at lines 216--218
+Overfull \hbox (57.48203pt too wide) in paragraph at lines 206--208
 \T1/ppl/m/n/10 (-20) ing func-tion: [] 
  []
 
@@ -1513,10 +1507,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [2]
-<imagenes/img1.jpg, id=61, 749.80125pt x 306.39468pt>
+<imagenes/img1.jpg, id=65, 749.80125pt x 306.39468pt>
 File: imagenes/img1.jpg Graphic file (type jpg)
 <use imagenes/img1.jpg>
-Package pdftex.def Info: imagenes/img1.jpg  used on input line 255.
+Package pdftex.def Info: imagenes/img1.jpg  used on input line 245.
 (pdftex.def)             Requested size: 394.3609pt x 142.26167pt.
 
 
@@ -1528,26 +1522,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
 [3 <./imagenes/img1.jpg>]
-<imagenes/img3.jpg, id=68, 1003.75pt x 676.5275pt>
-File: imagenes/img3.jpg Graphic file (type jpg)
-<use imagenes/img3.jpg>
-Package pdftex.def Info: imagenes/img3.jpg  used on input line 268.
-(pdftex.def)             Requested size: 394.35565pt x 256.08179pt.
-<imagenes/img2.jpg, id=70, 722.7pt x 303.38344pt>
+<imagenes/img2.jpg, id=72, 722.7pt x 303.38344pt>
 File: imagenes/img2.jpg Graphic file (type jpg)
 <use imagenes/img2.jpg>
-Package pdftex.def Info: imagenes/img2.jpg  used on input line 280.
+Package pdftex.def Info: imagenes/img2.jpg  used on input line 261.
 (pdftex.def)             Requested size: 394.35442pt x 142.26617pt.
 
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 24.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{24.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
-
-[4 <./imagenes/img3.jpg>]
 
 Package natbib Warning: There were multiply defined citations.
 
@@ -1560,54 +1540,42 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-12.18796pt}.
 
-[5
-pdfTeX warning (ext4): destination with the same identifier (name{cite.I}) has 
+[4
+pdfTeX warning (ext4): destination with the same identifier (name{cite.S}) has 
 been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.381 \end{document}
+l.359 \end{document}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{cite.S}) has 
 been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.381 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{cite.S}) has 
-been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.381 \end{document}
+l.359 \end{document}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{cite.I}) has 
 been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.381 \end{document}
+l.359 \end{document}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{cite.I}) has 
 been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.381 \end{document}
+l.359 \end{document}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{cite.P}) has 
 been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.381 \end{document}
-                    
-pdfTeX warning (ext4): destination with the same identifier (name{cite.P}) has 
-been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.381 \end{document}
+l.359 \end{document}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{cite.I}) has 
 been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.381 \end{document}
+l.359 \end{document}
                      <./imagenes/img2.jpg>]
 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
@@ -1622,16 +1590,16 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-11>
  ***********
 Package rerunfilecheck Info: File `template.out' has not changed.
-(rerunfilecheck)             Checksum: 39A87595BE13953E085E477DD2298386;621.
+(rerunfilecheck)             Checksum: 2C4E4E0DD7188D616F4B01B8CA8CBEBB;821.
  ) 
 Here is how much of TeX's memory you used:
- 33995 strings out of 468149
- 637100 string characters out of 5431082
- 1136386 words of memory out of 5000000
- 61674 multiletter control sequences out of 15000+600000
- 688424 words of font info for 318 fonts, out of 8000000 for 9000
+ 33962 strings out of 468149
+ 636647 string characters out of 5431082
+ 1137386 words of memory out of 5000000
+ 61651 multiletter control sequences out of 15000+600000
+ 688106 words of font info for 314 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 123i,13n,121p,5043b,668s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 123i,12n,121p,5043b,670s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\chris\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi375\ecss
 0800.pk><C:/Users/chris/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmr10.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX/fonts/type1/publi
@@ -1640,9 +1608,9 @@ pe1/urw/palatino/uplb8a.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX/fonts
 /type1/urw/palatino/uplbi8a.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX/f
 onts/type1/urw/palatino/uplr8a.pfb><C:/Users/chris/AppData/Local/Programs/MiKTe
 X/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on template.pdf (5 pages, 443450 bytes).
+Output written on template.pdf (4 pages, 247282 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 23 named destinations out of 1000 (max. 500000)
- 97358 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 130 PDF objects out of 1000 (max. 8388607)
+ 19 named destinations out of 1000 (max. 500000)
+ 97361 words of extra memory for PDF output out of 106986 (max. 10000000)
 
