@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.16)  19 SEP 2025 23:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.16)  28 SEP 2025 12:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1597,20 +1597,13 @@ Package natbib Warning: Citation(s) may have changed.
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-07-11>
  ***********
-
-
-Package rerunfilecheck Warning: File `template.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `template.out':
-(rerunfilecheck)             Before: 9C0A8D47A2266B7548636D59B34DA1C0;827
-(rerunfilecheck)             After:  2C4E4E0DD7188D616F4B01B8CA8CBEBB;821.
+Package rerunfilecheck Info: File `template.out' has not changed.
+(rerunfilecheck)             Checksum: 2C4E4E0DD7188D616F4B01B8CA8CBEBB;821.
  ) 
 Here is how much of TeX's memory you used:
  33962 strings out of 468149
  636701 string characters out of 5431082
- 1138389 words of memory out of 5000000
+ 1138390 words of memory out of 5000000
  61651 multiletter control sequences out of 15000+600000
  688106 words of font info for 314 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1623,7 +1616,7 @@ pe1/urw/palatino/uplb8a.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX/fonts
 /type1/urw/palatino/uplbi8a.pfb><C:/Users/chris/AppData/Local/Programs/MiKTeX/f
 onts/type1/urw/palatino/uplr8a.pfb><C:/Users/chris/AppData/Local/Programs/MiKTe
 X/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on template.pdf (4 pages, 247721 bytes).
+Output written on template.pdf (4 pages, 247715 bytes).
 PDF statistics:
  132 PDF objects out of 1000 (max. 8388607)
  19 named destinations out of 1000 (max. 500000)
